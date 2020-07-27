@@ -7,7 +7,7 @@ import Stepper from 'bs-stepper';
 class EditUser extends React.Component {
     constructor(props) {
         super(props);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.editUser = this.editUser.bind(this);
         this.state = {
             name: '',
             email: '',
@@ -47,7 +47,7 @@ class EditUser extends React.Component {
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }
-    onSubmit(e) {
+    editUser(e) {
         e.preventDefault();
         const obj = {
             id: this.props.match.params.id,
@@ -70,7 +70,7 @@ class EditUser extends React.Component {
                 if (res.status === 200) {
                     alert("User updated successfully");
                 }
-                this.props.history.push('/UserList');
+                this.props.history.push('/userslist');
             });
 
     }
@@ -96,7 +96,7 @@ class EditUser extends React.Component {
                             </div>
                         </div>
                         <div className="bs-stepper-content">
-                            <Form className="form" onSubmit={this.onSubmit}>
+                            <Form className="form" onSubmit={this.editUser}>
                                 <div id="p_details" className="content">
                                     <Col>
                                         <FormGroup row>

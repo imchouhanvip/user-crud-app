@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
-import EditUser from './User/EditUser';
-import UserList from './User/UserList';
-import AddUserByStepper from './User/AddUserByStepper';
+import EditUser from './user/EditUser';
+import UserList from './user/UserList';
+import AddUser from './user/AddUser';
 
 function App() {
   return (
@@ -17,20 +17,19 @@ function App() {
             <div className="collapse navbar-collapse" >
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                  <Link to={'/AddUser'} className="nav-link">Add User</Link>
+                  <Link to={'/adduser'} className="nav-link">Add User</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={'/UserList'} className="nav-link">Users List</Link>
+                  <Link to={'/userslist'} className="nav-link">Users List</Link>
                 </li>
               </ul>
             </div>
           </nav>
           <br />
           <Switch>
-            {/* <Route exact path='/AddUser' component={AddUser} /> */}
-            <Route exact path='/AddUser' component={AddUserByStepper} />
-            <Route path='/edit/:id' component={EditUser} />
-            <Route path='/UserList' component={UserList} />
+            <Route exact path='/adduser' component={AddUser} />
+            <Route path='/edituser/:id' component={EditUser} />
+            <Route path='/userslist' component={UserList} />
           </Switch>
         </div>
       </div>

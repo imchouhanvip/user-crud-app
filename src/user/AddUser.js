@@ -3,13 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bs-stepper/dist/css/bs-stepper.min.css';
 import Stepper from 'bs-stepper';
 import axios from 'axios';
-import '../User/User.css'
+import './User.css'
 import { Container, Col, Form, Row, FormGroup, Label, Input } from 'reactstrap';
 
-class AddUserByStepper extends React.Component {
+class AddUser extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.match.params.id)
     this.state = {
       name: '',
       email: '',
@@ -30,7 +29,7 @@ class AddUserByStepper extends React.Component {
     });
   }
 
-  AddUser = () => {
+  addUser = () => {
     axios.post('https://jsonplaceholder.typicode.com/users', {
       name: this.state.name,
       email: this.state.email,
@@ -49,11 +48,11 @@ class AddUserByStepper extends React.Component {
       .then(json => {
         if (json.status === 201) {
           alert("Data Save Successfully");
-          this.props.history.push('/Userlist')
+          this.props.history.push('/userslist')
         }
         else {
           alert('Data not Saved');
-          this.props.history.push('/Userlist')
+          this.props.history.push('/userslist')
         }
       })
   }
@@ -165,7 +164,7 @@ class AddUserByStepper extends React.Component {
                     <Col sm={10}>
                     </Col>
                     <Col sm={1}>
-                      <button type="button" onClick={this.AddUser} className="btn btn-success">Submit</button>
+                      <button type="button" onClick={this.addUser} className="btn btn-success">Submit</button>
                     </Col>
                   </Row>
                 </div>
@@ -177,4 +176,4 @@ class AddUserByStepper extends React.Component {
     );
   }
 }
-export default AddUserByStepper;
+export default AddUser;

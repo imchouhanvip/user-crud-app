@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-class Table extends Component {
+class UserTableRow extends Component {
     constructor(props) {
         super(props);
     }
 
-    DeleteUser = () => {
+    deleteUser = () => {
         axios.delete('https://jsonplaceholder.typicode.com/users/' + this.props.obj.id)
             .then(json => {
                 if (json.status === 200) {
@@ -27,14 +27,14 @@ class Table extends Component {
                     {this.props.obj.phone}
                 </td>
                 <td>
-                    <Link to={"/edit/" + this.props.obj.id} className="btn btn-success">Edit</Link>
+                    <Link to={"/edituser/" + this.props.obj.id} className="btn btn-success">Edit</Link>
                 </td>
                 <td>
-                    <button type="button" onClick={this.DeleteUser} className="btn btn-danger">Delete</button>
+                    <button type="button" onClick={this.deleteUser} className="btn btn-danger">Delete</button>
                 </td>
             </tr>
         );
     }
 }
 
-export default Table;
+export default UserTableRow;

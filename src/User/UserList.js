@@ -1,6 +1,6 @@
 import React, { Component } from 'react';  
 import axios from 'axios';  
-import Table from './Table';  
+import UserTableRow from './UserTableRow';  
   
 export default class Userlist extends Component {  
   
@@ -20,7 +20,7 @@ export default class Userlist extends Component {
       
     tabRow(){  
       return this.state.users.map(function(object, i){  
-          return <Table obj={object} key={i} />;  
+          return <UserTableRow obj={object} key={i} />;  
       });  
     }  
   
